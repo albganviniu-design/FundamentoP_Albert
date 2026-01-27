@@ -89,17 +89,19 @@ int main()
     cout << "Copia con strcpy: " << strcpy(destino, origen) << endl;
 
     char destino1[50] = "Fundamentos";
-    const char origen1[] = "de Programacion";
+    char destino2[50] = "Fundamentos";
+    const char origen1[] = " de Programacion";
 
     // Llamar a my_strcat
 
-    cout << endl << "Con my_strcat: " << my_strcat(destino1, origen1) << endl;
-    cout << "Con strcat: " << strcat(destino1, origen1) << endl;
+    cout << endl << "Concatena con my_strcat: " << my_strcat(destino1, origen1) << endl;
+    cout << "Concatena con strcat: " << strcat(destino2, origen1) << endl;
 
     // Llamar a my_strcmp
 
-    cout << endl << "Con my_strcmp: " << my_strcmp(destino, origen) << endl;
-    cout << "Con strcmp: " << strcmp(destino, origen) << endl;
+    cout << endl << my_strcmp("Hola", "Hola") << endl; // 0
+    cout << my_strcmp("Hola", "Holb") << endl; // negativo
+    cout << my_strcmp("Holb", "Hola") << endl; // positivo
 
     return 0;
 }
