@@ -11,7 +11,7 @@ bool esVocal(char c)
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-int palabras_con_vocal(char *texto)
+int palabras_con_vocal(const char *texto)
 {
     int contador = 0;
     bool inicioPalabra = true;
@@ -40,7 +40,7 @@ int palabras_con_vocal(char *texto)
 
 int main()
 {
-    char texto[] = "Este es un ejemplo en C++ END";
+    const char *texto = "Este es un ejemplo en C++ END";
 
     cout << "Texto: " << texto << endl;
     cout << "Numero de palabras que comienzan con vocal: " << palabras_con_vocal(texto) << endl;
