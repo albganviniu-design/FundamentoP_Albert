@@ -13,6 +13,8 @@ bool esFilaDominanteEstricta(int (*M)[N], int fila)
     {
         int valor = *(*(M + fila) + col);
 
+        bool mayorATodos = true;
+
         for (int f = 0; f < N; f++)
         {
             if (f != fila)
@@ -22,10 +24,13 @@ bool esFilaDominanteEstricta(int (*M)[N], int fila)
                 if (valor < otro)
                     return false;
 
-                if (valor > otro)
-                    estricta = true;
+                if (valor <= otro)
+                    mayorATodos = false;
             }
         }
+
+        if (mayorATodos)
+            estricta = true;
     }
 
     return estricta;
@@ -57,7 +62,9 @@ bool esFilaFuertementeDominante(int (*M)[N], int fila)
             }
 
             if (sumaFila <= sumaOtra)
+            {
                 return false;
+            }
         }
     }
 

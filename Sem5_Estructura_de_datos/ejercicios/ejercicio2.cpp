@@ -36,7 +36,7 @@ void mayorNota(Estudiante e[], int n)
         }
     }
     cout << "El estudiante con la mayor nota es: " << e[c].nombre << endl; 
-    cout << "Nota: " << e[c].nota;
+    cout << "Nota: " << e[c].nota << endl;
 }
 
 

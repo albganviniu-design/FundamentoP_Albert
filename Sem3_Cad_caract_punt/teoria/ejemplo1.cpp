@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// Funcion para imprimir la tabla ASCCI  en consola
+
 void tablaASCCI()
 {
     for (int i = 0; i < 128; i++)

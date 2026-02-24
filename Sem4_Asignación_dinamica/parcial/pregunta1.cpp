@@ -1,21 +1,32 @@
 #include <iostream>
 using namespace std;
 
-int costoMaximo(int arr[], int n, int pos)
+int costoMaximo(int arr[], int n, int pos, int nivel)
 {
+    for (int k = 0; k < nivel; k++) 
+    {
+        cout << "    ";
+    }
+
+    cout << "-> pos = " << pos << endl;
+
     // Caso base
     if (pos == n)
     {
+        for (int k = 0; k < nivel; k++) cout << "    ";
+        cout << "<- retorna 0 (Base)" << endl;
         return 0;
     }
 
     int producto = arr[pos];
-    int maximo = producto + costoMaximo(arr, n, pos + 1);
+    
+    int maximo = producto + costoMaximo(arr, n, pos + 1, nivel + 1);
 
     for (int i = pos + 1; i < n; i++)
     {
         producto = producto * arr[i];
-        int costoRestante = costoMaximo(arr, n, i + 1);
+        
+        int costoRestante = costoMaximo(arr, n, i + 1, nivel + 1);
 
         if (producto + costoRestante > maximo)
         {
@@ -23,22 +34,27 @@ int costoMaximo(int arr[], int n, int pos)
         }
     }
 
+    for (int k = 0; k < nivel; k++) 
+    {
+        cout << "    ";
+    }
+    cout << "<- retorna " << maximo << " desde pos = " << pos << endl;
+
     return maximo;
 }
 
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5};
-    int n = 5;
+    int arr[] = {2, 1, 3};
+    int n = 3;
 
-    cout << "\nArreglo: {";
-    for (int i = 0; i < n-1; i++)
-    {
-        cout << arr[i] << ", ";
-    }
-    cout << arr[4] << "}" << endl;
-    
-    cout << "\nCosto maximo: " << costoMaximo(arr, n, 0) << endl;
+    cout << "\nArreglo: {2, 1, 3}" << endl;
+    cout << "---------------------------------" << endl;
+
+    int resultado = costoMaximo(arr, n, 0, 0);
+
+    cout << "---------------------------------" << endl;
+    cout << "Costo maximo: " << resultado << endl;
 
     return 0;
 }

@@ -292,6 +292,8 @@ const char* paises[] = {
 };
 ```
 
+![alt text](image-2.png)
+
 * ¿Qué es realmente paises? paises es un arreglo de punteros
 
 * Cada puntero apunta a una cadena literal
