@@ -1,0 +1,2 @@
+﻿En esta carpeta se deben generar
+los archivos de salida
