@@ -24,10 +24,15 @@ int main()
         return 1;
     }
 
-    int numRegistros;
-    archivo.read((char *)&numRegistros, sizeof(int));
+    const int MAX = 1000;
+    Venta *ventas = new Venta[MAX];
 
-    Venta *ventas = new Venta[numRegistros];
+    int numRegistros = 0;
+
+    while (archivo.read((char*)&ventas[numRegistros], sizeof(Venta)))
+    {
+        numRegistros++;
+    }
 
     // Para identificar totales
     int *vendedores = new int[numRegistros];
@@ -139,7 +144,7 @@ int main()
 
     for (int i = 0; i < numRegistros; i++)
     {
-        if (ventas[i].cantidad)
+        if (ventas[i].cantidad > 100)
         {
             reporte << left
                     << setw(10) << "ID Venta:"
@@ -157,7 +162,6 @@ int main()
     archivo.close();
     reporte.close();
 
-    // Liberamos la memoria
     delete[] ventas;
     delete[] vendedores;
     delete[] totalVendedor;
