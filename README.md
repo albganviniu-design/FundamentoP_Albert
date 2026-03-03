@@ -12,3 +12,4 @@
 - **Semana 5:** Estructura de datos
 - **Semana 6:** Archivos
 - **Semana 7:** Clases
+- **Semana 8:** Programacion orientada a objetos
